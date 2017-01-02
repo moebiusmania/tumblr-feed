@@ -1,5 +1,6 @@
 {
   "name": "tumblr-feed",
+  "description": "Web Component for easily getting a Tumblr blog JSON feed.",
   "version": "0.5.0",
   "main": "tumblr-feed.js",
   "repository": "https://moebiusmania@github.com/moebiusmania/tumblr-feed.git",
