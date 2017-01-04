@@ -21,30 +21,10 @@ const _plugins = [
   })
 ]
 
-const webcomponent = {
-  entry: './src/index.js',
-  output: {
-    filename: './tumblr-feed.js'
-  },
-  // devtool: 'eval-source-map',
-  module: Object.assign({}, _loaders),
-  plugins: _plugins
-}
-
-const polyfill = {
+const demo = {
   entry: './src/polyfill.js',
   output: {
-    filename: './tumblr-feed-polyfill.js'
-  },
-  // devtool: 'eval-source-map',
-  module: Object.assign({}, _loaders),
-  plugins: _plugins
-}
-
-const vanilla = {
-  entry: './src/tumblr.js',
-  output: {
-    filename: './tumblr.js'
+    filename: './demo/tumblr-feed.js'
   },
   // devtool: 'eval-source-map',
   module: Object.assign({}, _loaders),
@@ -52,7 +32,5 @@ const vanilla = {
 }
 
 module.exports = [
-  webcomponent,
-  polyfill,
-  vanilla
+  demo
 ];

@@ -25,13 +25,18 @@ class TumblrFeed extends Component {
 
   connectedCallback () {
     super.connectedCallback();
+    this._addScript();
+  }
 
+  _addScript(){
+    this.dispatchEvent(new CustomEvent('tumblr-feed-attached'));
+    this._checkMinimum();
     loadTumblrFeed(this.blog, this.callback, this.posts);
+  }
 
-    // const script = document.querySelector(`#tumblr-${this.blog}`);
-    // script.addEventListener('load', (evt) => {
-    //   this.dispatchEvent(new CustomEvent('tumblr-feed-attached'));
-    // });
+  _checkMinimum(){
+    const n = parseInt(this.posts);
+    n < 0 ? this.posts = 0 : null;
   }
 
 }

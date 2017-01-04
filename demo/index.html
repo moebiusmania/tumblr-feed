@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>tumblr-feed demo</title>
+  <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.4/milligram.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="https://cdn.rawgit.com/webcomponents/custom-elements/master/custom-elements.min.js"></script>
+  <script src="https://cdn.rawgit.com/webcomponents/shadydom/master/shadydom.min.js"></script> -->
+  <script src="tumblr-feed.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>&lt;tumblr-feed&gt;</h1>
+    <p><blockquote>Web Component for easily getting a Tumblr blog JSON feed. by <a href="https://github.com/moebiusmania">@moebiusmania</a></blockquote></p>
+    <hr>
+
+
+    <h3>How to use</h3>
+    <p>Just add the custom tag in your page with a few settings:</p>
+
+<pre>
+&lt;tumblr-feed
+  blog="staff"
+  posts="5"&gt;
+&lt;/tumblr-feed&gt;
+</pre>
+
+    <p>then in your Jasvascript (internal or external) just define the callback function:</p>
+
+<pre>
+function tumblr(data){
+  console.log(data);
+  // everything you want to do with the data here...
+}
+</pre>
+
+    <p>and in your console you will have something like this <small>(posts object removed intentionally)</small>:</p>
+
+    <tumblr-feed
+      blog="staff"
+      callback="tumblr"
+      posts="5">
+    </tumblr-feed>
+
+
+    <pre id="data"></pre>
+
+    <p>More info on the <a href="https://github.com/moebiusmania/tumblr-feed#tumblr-feed">README file</a>...</p>
+
+    <hr>
+    <h4>Credits</h4>
+    <p>
+      <ul>
+        <li>built on top of <a href="http://skate.js.org/">SkateJS</a></li>
+        <li>demo page CSS by <a href="https://milligram.github.io/">Milligram</a></li>
+        <li>demo page font: <a href="https://fonts.google.com/specimen/Nunito">Nunito</a></li>
+      </ul>
+    </p>
+
+
+
+  </div>
+
+
+
+  <script>
+    var tf = document.querySelector('tumblr-feed');
+    tf.addEventListener('tumblr-feed-attached', function(evt){
+      console.log('* Tumblr feed attached...');
+    });
+
+    function tumblr(data){
+      console.log('* Tumblr feed loaded!');
+      console.log(data);
+      var str = JSON.stringify(data.tumblelog);
+      console.log(str);
+      document.querySelector('#data').innerHTML = str;
+    }
+  </script>
+</body>
+</html>

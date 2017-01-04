@@ -7,9 +7,11 @@
   "author": "Salvatore Laisa <moebiusmania@gmail.com>",
   "license": "Apache-2.0",
   "scripts": {
-    "demo": "http-server -s",
+    "demo": "http-server ./demo -s",
     "start": "http-server -s & webpack -w",
-    "build": "webpack"
+    "build": "webpack",
+    "build:demo": "webpack --config demo.config.js",
+    "deploy:demo": "gh-pages -d demo"
   },
   "dependencies": {
     "skatejs": "^4.4.2",
@@ -18,8 +20,8 @@
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
-    "babel-plugin-transform-es2015-classes": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
+    "gh-pages": "^0.12.0",
     "http-server": "^0.9.0",
     "webpack": "^1.14.0"
   }

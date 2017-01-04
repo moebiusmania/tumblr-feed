@@ -1,4 +1,4 @@
-# tumblr-feed
+# &lt;tumblr-feed&gt;
 Web Component for easily getting a Tumblr blog JSON feed.
 
 ## Install as Bower package
@@ -6,7 +6,7 @@ Web Component for easily getting a Tumblr blog JSON feed.
 $ bower install tumblr-feed
 ```
 
-then in the head of yout HTML file you can import on of these two scripts
+then in the head of yout HTML file you can import one of these two scripts
 
 ```html
 <!-- Polyfill included version -->
@@ -26,8 +26,15 @@ $ yarn add tumblr-feed
 then inside your JS files you can include it
 
 ```js
-import {tumblr-feed}
+import {TumblrFeed} from 'tumblr-feed';
 ```
+
+if you need to add the polyfill in your JS bundle add this line **before** importing the tumblr-feed Component
+
+```js
+import 'skatejs-web-components';
+```
+
 -->
 
 ## How to use
