@@ -16,9 +16,6 @@ then in the head of yout HTML file you can import one of these two scripts
 ```
 
 ## Install as NPM package
-work in progress
-
-<!--
 ```
 $ yarn add tumblr-feed
 ```
@@ -34,8 +31,6 @@ if you need to add the polyfill in your JS bundle add this line **before** impor
 ```js
 import 'skatejs-web-components';
 ```
-
--->
 
 ## How to use
 The bare minimum to have it working is to write the tag with the "blog" attribute set:
