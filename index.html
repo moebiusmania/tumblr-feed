@@ -7,8 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,800,900" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.4/milligram.min.css">
   <link rel="stylesheet" href="style.css">
-  <!-- <script src="https://cdn.rawgit.com/webcomponents/custom-elements/master/custom-elements.min.js"></script>
-  <script src="https://cdn.rawgit.com/webcomponents/shadydom/master/shadydom.min.js"></script> -->
+  <script src="https://cdn.rawgit.com/webcomponents/webcomponentsjs/master/webcomponents-loader.js"></script>
   <script src="tumblr-feed.js"></script>
 </head>
 <body>
@@ -55,7 +54,6 @@ function tumblr(data){
     <h4>Credits</h4>
     <p>
       <ul>
-        <li>built on top of <a href="http://skate.js.org/">SkateJS</a></li>
         <li>demo page CSS by <a href="https://milligram.github.io/">Milligram</a></li>
         <li>demo page font: <a href="https://fonts.google.com/specimen/Nunito">Nunito</a></li>
       </ul>
@@ -68,15 +66,15 @@ function tumblr(data){
 
 
   <script>
-    var tf = document.querySelector('tumblr-feed');
-    tf.addEventListener('tumblr-feed-attached', function(evt){
+    const tf = document.querySelector('tumblr-feed');
+    tf.addEventListener('tumblr-feed-attached', (evt) => {
       console.log('* Tumblr feed attached...');
     });
 
-    function tumblr(data){
+    const tumblr = (data) => {
       console.log('* Tumblr feed loaded!');
       console.log(data);
-      var str = JSON.stringify(data.tumblelog);
+      const str = JSON.stringify(data.tumblelog);
       console.log(str);
       document.querySelector('#data').innerHTML = str;
     }
