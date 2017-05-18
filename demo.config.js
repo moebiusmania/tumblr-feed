@@ -1,33 +1,22 @@
-const webpack = require('webpack');
+'use strict';
 
-const _loaders = {
-  loaders: [
-    {
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      loader: 'babel',
-      query: {
-        presets: ['es2015']
-      }
-    }
-  ]
-}
+const path = require('path');
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const _plugins = [
-  new webpack.optimize.UglifyJsPlugin({
-    minimize: true,
-    compress: { warnings: false },
-    output: {comments: false}
-  })
+  new UglifyJSPlugin({
+    sourceMap: true
+  }),
 ]
 
 const demo = {
-  entry: './src/polyfill.js',
+  entry: './src/index.js',
   output: {
-    filename: './demo/tumblr-feed.js'
+    path: path.join(__dirname, './demo'),
+    filename: 'tumblr-feed.js',
   },
-  // devtool: 'eval-source-map',
-  module: Object.assign({}, _loaders),
+  devtool: 'source-map',
   plugins: _plugins
 }
 

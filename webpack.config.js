@@ -1,58 +1,36 @@
-const webpack = require('webpack');
+'use strict';
 
-const _loaders = {
-  loaders: [
-    {
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      loader: 'babel',
-      query: {
-        presets: ['es2015']
-      }
-    }
-  ]
-}
+const path = require('path');
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const _plugins = [
-  new webpack.optimize.UglifyJsPlugin({
-    minimize: true,
-    compress: { warnings: false },
-    output: {comments: false}
-  })
+  new UglifyJSPlugin({
+    sourceMap: true
+  }),
 ]
 
 const webcomponent = {
   entry: './src/index.js',
   output: {
-    filename: './tumblr-feed.js'
+    path: path.join(__dirname, './'),
+    filename: 'tumblr-feed.js',
   },
-  // devtool: 'eval-source-map',
-  module: Object.assign({}, _loaders),
-  plugins: _plugins
-}
-
-const polyfill = {
-  entry: './src/polyfill.js',
-  output: {
-    filename: './tumblr-feed-polyfill.js'
-  },
-  // devtool: 'eval-source-map',
-  module: Object.assign({}, _loaders),
+  devtool: 'source-map',
   plugins: _plugins
 }
 
 const vanilla = {
   entry: './src/tumblr.js',
   output: {
-    filename: './tumblr.js'
+    path: path.join(__dirname, './'),
+    filename: 'tumblr.js',
   },
-  // devtool: 'eval-source-map',
-  module: Object.assign({}, _loaders),
+  devtool: 'source-map',
   plugins: _plugins
 }
 
 module.exports = [
   webcomponent,
-  polyfill,
   vanilla
 ];

@@ -1,20 +1,6 @@
 # &lt;tumblr-feed&gt;
 Web Component for easily getting a Tumblr blog JSON feed.
 
-## Install as Bower package
-```
-$ bower install tumblr-feed
-```
-
-then in the head of yout HTML file you can import one of these two scripts
-
-```html
-<!-- Polyfill included version -->
-<script src="bower_components/tumblr-feed/tumblr-feed-polyfill.js"></script>
-<!-- Clean version -->
-<script src="bower_components/tumblr-feed/tumblr-feed.js"></script>
-```
-
 ## Install as NPM package
 ```
 $ yarn add tumblr-feed
@@ -23,13 +9,18 @@ $ yarn add tumblr-feed
 then inside your JS files you can include it
 
 ```js
-import {TumblrFeed} from 'tumblr-feed';
+import 'tumblr-feed';
 ```
 
-if you need to add the polyfill in your JS bundle add this line **before** importing the tumblr-feed Component
+## Install as Bower package
+```
+$ bower install tumblr-feed
+```
 
-```js
-import 'skatejs-web-components';
+then in the head of yout HTML file you can import the file
+
+```html
+<script src="bower_components/tumblr-feed/tumblr-feed.js"></script>
 ```
 
 ## How to use
@@ -53,6 +44,11 @@ function tumblr(data){
 |blog|String|"staff"|true| the name of the blog you want to load data from (example: **staff**.tumblr.com)|
 |callback|String|"tumblr"|false|the name of the callback function that will be executed on loading the feed|
 |posts|Number|10|false| the number of posts to get, **maximum 50**|
+
+## Polyfill
+This component is built on top of [Web Components](https://www.webcomponents.org/) v1 specification, if you need to have it run on **modern browsers** (*modern means excluding IE11...*) you can include the [official polyfill](https://github.com/webcomponents/webcomponentsjs), available on both the NPM and Bower registries.
+
+**#usetheplatform**
 
 ## Limitations / project purpose
 This Feed APIs are **really bad designed** by Tumblr, so all limitations like max number of posts and the callback function exposed as a global one cannot be overridden.

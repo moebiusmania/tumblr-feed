@@ -1,8 +1,8 @@
 {
   "name": "tumblr-feed",
   "description": "Web Component for easily getting a Tumblr blog JSON feed.",
-  "version": "0.6.0",
-  "main": "tumblr-feed.js",
+  "version": "1.0.0",
+  "main": "src/index.js",
   "repository": "https://moebiusmania@github.com/moebiusmania/tumblr-feed.git",
   "author": "Salvatore Laisa <moebiusmania@gmail.com>",
   "license": "Apache-2.0",
@@ -14,15 +14,12 @@
     "deploy:demo": "gh-pages -d demo"
   },
   "dependencies": {
-    "skatejs": "^4.4.2",
-    "skatejs-web-components": "^5.0.1"
+    "webcomponentsjs": "^1.0.2"
   },
   "devDependencies": {
-    "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.18.0",
-    "gh-pages": "^0.12.0",
-    "http-server": "^0.9.0",
-    "webpack": "^1.14.0"
+    "gh-pages": "^1.0.0",
+    "http-server": "^0.10.0",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "webpack": "^2.5.1"
   }
 }
