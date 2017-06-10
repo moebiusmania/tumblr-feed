@@ -1,7 +1,7 @@
 # &lt;tumblr-feed&gt;
 Web Component for easily getting a Tumblr blog JSON feed.
 
-## Install as NPM package
+## Install
 ```
 $ yarn add tumblr-feed
 ```
@@ -12,15 +12,10 @@ then inside your JS files you can include it
 import 'tumblr-feed';
 ```
 
-## Install as Bower package
-```
-$ bower install tumblr-feed
-```
-
-then in the head of yout HTML file you can import the file
+or if you want to use the pre built version 
 
 ```html
-<script src="bower_components/tumblr-feed/tumblr-feed.js"></script>
+<script src="./node_modules/tumblr-feed/tumblr-feed.js"></script>
 ```
 
 ## How to use
